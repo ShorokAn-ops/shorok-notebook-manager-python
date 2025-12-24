@@ -20,17 +20,17 @@ def load_notes():
 def save_notes(notes):
     try:
         with open(file_name, "w") as f:
-            json.dump(notes, f, ensure_ascii=False, indent=2) #ensure_ascii=False -> שמור את הטקסט בקובץ כמו שהוא – כולל עברית – בלי להמיר אותו לקודים
+            json.dump(notes, f, ensure_ascii=False, indent=2) 
     except Exception as e:
         print("Error saving notes:", e)
 
 
 def add_note(notes):
     print("\n Add New Note ")
-    title = input("Title: ").strip() #strip -> מסיר רווחים מיותרים מההתחלה ומהסוף
+    title = input("Title: ").strip() 
     content = input("Content: ").strip()
     tags = input("Tags (comma separated): ").strip()
-    date= datetime.now().strftime("%d/%m/%Y")  # auto timestamp
+    date= datetime.now().strftime("%d/%m/%Y")  
     
     note = {
         "title": title,
@@ -129,7 +129,7 @@ def edit_note(notes):
         print("No changes made.\n")
         return
 
-    notes[num]["date"] = datetime.now().strftime("%d/%m/%Y")  # update timestamp only if changed
+    notes[num]["date"] = datetime.now().strftime("%d/%m/%Y") 
     save_notes(notes)
     print("✅ Note updated! \n")
 
@@ -200,3 +200,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
